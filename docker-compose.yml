@@ -11,7 +11,7 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - /Users/xinxi/mysql:/var/lib/mysql         
+      - ./mysql:/var/lib/mysql         
   sonarqube:
     image: sonarqube:lts
     environment:
@@ -28,7 +28,7 @@ services:
         protocol: tcp
         mode: host
     volumes:
-      - /Users/xinxi/Desktop/SonarQube/extensions:/opt/sonarqube/extensions      
+      - ./extensions:/opt/sonarqube/extensions      
     depends_on:
       - mysql    
 
