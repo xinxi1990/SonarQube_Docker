@@ -1,0 +1,38 @@
+version: "3.5"
+
+services:
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=123321
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
+    volumes:
+      - /Users/xinxi/mysql:/var/lib/mysql         
+  sonarqube:
+    image: sonarqube:lts
+    environment:
+      - SONARQUBE_JDBC_USERNAME=root
+      - SONARQUBE_JDBC_PASSWORD=123321
+      - SONARQUBE_JDBC_URL=jdbc:mysql://192.168.1.109:3306/test_sonar?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    ports:
+      - target: 9000
+        published: 9000
+        protocol: tcp
+        mode: host
+      - target: 9002
+        published: 9002
+        protocol: tcp
+        mode: host
+    volumes:
+      - /Users/xinxi/Desktop/SonarQube/extensions:/opt/sonarqube/extensions      
+    depends_on:
+      - mysql    
+
+
+
+
+
