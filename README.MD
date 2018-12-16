@@ -11,3 +11,6 @@ test_sonar
 ```
 docker-compose -f docker-compose.yml up -d
 ```
+# 相关资料
+可以查看在线文档<br>
+http://note.youdao.com/noteshare?id=c36fe6146cfcdce9cb2247772d44c3fc
